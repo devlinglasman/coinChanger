@@ -18,4 +18,22 @@ public class testCoinChanger {
         coinChanger test = new coinChanger();
         assertEquals("PennyPenny", test.changeCoins(2));
     }
+
+    @Test
+    public void test3() {
+        coinChanger test = new coinChanger();
+        assertEquals("PennyPennyPenny", test.changeCoins(3));
+    }
+
+    @Test
+    public void test4() {
+        coinChanger test = new coinChanger();
+        assertEquals("PennyPennyPennyPenny", test.changeCoins(4));
+    }
+
+    @Test
+    public void test5() {
+        coinChanger test = new coinChanger();
+        assertEquals("Nickel", test.changeCoins(5));
+    }
 }
