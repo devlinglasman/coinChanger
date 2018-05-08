@@ -4,21 +4,34 @@ import java.util.HashMap;
 
 public class coinChanger {
 
-    private static String[] coinNames = {"Quarter_Dollar","Dime","Nickel","Penny"};
-    private static int[] coinValues = {25,10,5,1};
+    private static final HashMap<Integer, String> COINS = createHashMap();
 
-    public static String changeCoins(int amount) {
-
-        int counter = amount;
-        String coinsReturned = "";
-
-        for (int i = 0; i < coinValues.length; i++) {
-           while (counter >= coinValues[i]) {
-               coinsReturned += coinNames[i];
-               counter -= coinValues[i];
-           }
-        }
-        return coinsReturned;
+    private static HashMap<Integer, String> createHashMap() {
+        HashMap<Integer, String> result = new HashMap<>();
+        result.put(1, "Penny");
+        result.put(5, "Nickel");
+        result.put(10, "Dime");
+        result.put(25, "Quarter_Dollar");
+        return result;
     }
 
+    public static String getCoinsReturned(int counter) {
+        StringBuilder coinsReturned = new StringBuilder();
+        while (counter > 0) {
+            int lookup = determineLookupFrom(counter);
+            coinsReturned.append(COINS.get(lookup));
+            counter -= lookup;
+        }
+        return coinsReturned.toString();
+    }
+
+    private static int determineLookupFrom(int counter) {
+        int largestKey = 1;
+        for (Integer key : COINS.keySet()) {
+            if (key > largestKey && key <= counter) {
+                largestKey = key;
+            }
+        }
+        return largestKey;
+    }
 }

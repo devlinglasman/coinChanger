@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class testCoinChanger {
 
     private void assertChanger(String coinsReturned, int amount) {
-        assertEquals(coinsReturned, coinChanger.changeCoins(amount));
+        assertEquals(coinsReturned, coinChanger.getCoinsReturned(amount));
     }
 
     @Test
