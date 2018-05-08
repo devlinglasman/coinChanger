@@ -3,17 +3,32 @@ package test;
 import main.coinChanger;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testCoinChanger {
+
+    private static final HashMap<Integer,String> TESTS = createHashMap();
+
+    private static HashMap<Integer,String> createHashMap() {
+        HashMap<Integer,String> result = new HashMap<>();
+        result.put(1,"Penny");
+        result.put(2,"PennyPenny");
+        result.put(51,"Half_DollarPenny");
+        result.put(56,"Half_DollarNickelPenny");
+        return result;
+    }
 
     private void assertChanger(String coinsReturned, int amount) {
         assertEquals(coinsReturned, coinChanger.getCoinsReturned(amount));
     }
 
     @Test
-    public void test1() {
-        assertChanger("Penny",1);
+    public void alltests() {
+        for (Integer amount : TESTS.keySet()) {
+            assertChanger(TESTS.get(amount), amount);
+        }
     }
 
     @Test

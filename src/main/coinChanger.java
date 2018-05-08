@@ -27,7 +27,7 @@ public class coinChanger {
 
     private static int determineLookupFrom(int counter) {
         int largestKey = 1;
-        for (Integer key : COINS.keySet()) {
+        for (int key : COINS.keySet()) {
             if (key > largestKey && key <= counter) {
                 largestKey = key;
             }
