@@ -36,4 +36,16 @@ public class testCoinChanger {
         coinChanger test = new coinChanger();
         assertEquals("Nickel", test.changeCoins(5));
     }
+
+    @Test
+    public void test6() {
+        coinChanger test = new coinChanger();
+        assertEquals("NickelPenny", test.changeCoins(6));
+    }
+
+    @Test
+    public void test8() {
+        coinChanger test = new coinChanger();
+        assertEquals("NickelPennyPennyPenny", test.changeCoins(8));
+    }
 }
