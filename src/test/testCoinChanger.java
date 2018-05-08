@@ -13,4 +13,9 @@ public class testCoinChanger {
         assertEquals("Penny", test.changeCoins(1));
     }
 
+    @Test
+    public void test2() {
+        coinChanger test = new coinChanger();
+        assertEquals("PennyPenny", test.changeCoins(2));
+    }
 }
