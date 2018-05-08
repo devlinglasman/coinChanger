@@ -45,4 +45,24 @@ public class testCoinChanger {
     public void test8() {
         assertChanger("NickelPennyPennyPenny",8);
     }
+
+    @Test
+    public void test10() {
+        assertChanger("Dime",10);
+    }
+
+    @Test
+    public void test17() {
+        assertChanger("DimeNickelPennyPenny",17);
+    }
+
+    @Test
+    public void test23() {
+        assertChanger("DimeDimePennyPennyPenny",23);
+    }
+
+    @Test
+    public void test29() {
+        assertChanger("Quarter_DollarPennyPennyPennyPenny",29);
+    }
 }
